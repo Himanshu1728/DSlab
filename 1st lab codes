@@ -31,3 +31,116 @@ int main()
         cout<<"AVERAGE OF SUBJECT "<<j+1<<"th IS:"<<avg[j]/n<<endl;
     }
 }
+
+
+// SECOND CODE of PALINFROME 
+#include<bits/stdc++.h>
+using namespace std;
+bool ispalindrome(string s){
+    int i=0;
+    int j = s.size() -1;
+    while(i<=j){
+        if(s[i] != s[j]){
+            cout << "Not Palindrome"<< endl;
+            return false;
+        }
+        else{
+            i++;
+            j--;
+        }
+    }
+    return true;
+
+}
+int main()
+{
+    string str = "nitip";
+    cout << ispalindrome(str);
+    return 0;
+    
+}
+
+// THIRD CODE
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<int> arr;
+    int capacity, choice;
+    cout << "Enter the capacity of the array: ";
+    cin >> capacity;
+    arr.reserve(capacity);
+
+    while (true) {
+        cout << "\nChoose an option:\n";
+        cout << "1. Insert at a specific location\n";
+        cout << "2. Delete from a specific location\n";
+        cout << "3. Display array\n";
+        cout << "4. Quit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                if (arr.size() >= capacity) {
+                    cout << "Array is full. Insertion not possible. (Overflow)\n";
+                } else {
+                    int value, position;
+                    cout << "Enter the value to insert: ";
+                    cin >> value;
+                    cout << "Enter the position (0-based index) to insert: ";
+                    cin >> position;
+
+                    if (position < 0 || position > arr.size()) {
+                        cout << "Invalid position. Please enter a valid index.\n";
+                    } else {
+                        arr.insert(arr.begin() + position, value);
+                        cout << "Value inserted successfully.\n";
+                    }
+                }
+                break;
+            }
+
+            case 2: {
+                if (arr.empty()) {
+                    cout << "Array is empty. Deletion not possible. (Underflow)\n";
+                } else {
+                    int position;
+                    cout << "Enter the position (0-based index) to delete: ";
+                    cin >> position;
+
+                    if (position < 0 || position >= arr.size()) {
+                        cout << "Invalid position. Please enter a valid index.\n";
+                    } else {
+                        arr.erase(arr.begin() + position);
+                        cout << "Value deleted successfully.\n";
+                    }
+                }
+                break;
+            }
+
+            case 3: {
+                cout << "Array elements: ";
+                for (int i = 0; i < arr.size(); i++) {
+                    cout << arr[i] << " ";
+                }
+                cout << endl;
+                break;
+            }
+
+            case 4:
+                cout << "Exiting the program.\n";
+                return 0;
+
+            default:
+                cout << "Invalid choice. Please select a valid option.\n";
+        }
+    }
+
+    return 0;
+
+// FOURTH CODE
+
+
